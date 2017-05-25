@@ -1,0 +1,26 @@
+<!--<div>
+    <p>Name : {{$ctrl.product.name}}</p>
+    <p>description : {{$ctrl.product.description}}</p>
+    <p>price : {{$ctrl.product.price}}</p>
+    
+</div>
+<div>
+    <button ng-click="$ctrl.add()">Add to cart</button>
+    <button ng-click="$ctrl.remove()">Remove From cart</button>
+</div>-->
+
+<md-card>
+    <img ng-src="img/{{$ctrl.product.img}}" class="md-card-image" alt="Washed Out">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{$ctrl.product.name}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <p> {{$ctrl.product.description}}  </p>
+    </md-card-content>
+    <md-card-actions layout="column" layout-align="start">
+        <md-button ng-click="$ctrl.add()">Add to cart</md-button>
+        <md-button ng-click="$ctrl.remove()">Remove From cart</md-button>
+    </md-card-actions>
+</md-card>
