@@ -1,6 +1,59 @@
-<div>
-    <div>Navigation links</div>
-    <div>Cart</div>
-    <div>Logout section</div>
-    
+<div flex="nogrow" class="md-whiteframe-5dp">
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>Food Menus</span>
+        </div>
+    </md-toolbar>
+
+    <md-content>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-class="menu.name == $ctrl.selectedItem ? 'selected':''"
+             ng-repeat="menu in $ctrl.menus" ng-click="$ctrl.goto(menu)">
+                <img ng-src="img/{{menu.img}}" class="md-avatar" alt="img" />
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{menu.name}}</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+<div flex="nogrow" class="md-whiteframe-5dp">
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>Cart</span>
+        </div>
+    </md-toolbar>
+
+    <md-content>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-click="null">
+                <img ng-src="img/cart.svg" class="md-avatar" alt="{{item.who}}" />
+                <div class="md-list-item-text" layout="column">
+                    <h3>See Cart</h3>
+                    <p>Number of items : {{$ctrl.cart.count}}</p>
+                    <p>Total Cost : ${{$ctrl.cart.totalPrice}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+<div flex="nogrow" class="md-whiteframe-5dp">
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>Logout</span>
+        </div>
+    </md-toolbar>
+
+    <md-content>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-click="null">
+                <img ng-src="img/logout.svg" class="md-avatar" alt="{{item.who}}" />
+                <div class="md-list-item-text" layout="column">
+                    <h3>Logout !!!</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </div>

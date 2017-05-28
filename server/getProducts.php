@@ -14,7 +14,7 @@ function utf8ize($d) {
 
 $database = new database();
 $data = array();
-$result = $database->getProducts(implode(' ',explode('_',$_GET['cat'])));
+$result = $database->getProducts(implode(' ',explode('_',$_GET['cat']))); //  "APPETIZERS"
 $i = 0;
 while($row = $result->fetch_assoc()){
     $data[] = $row;

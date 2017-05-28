@@ -29,3 +29,19 @@ product{
 appetizer{
     /*clear: both;*/
 }
+
+/* Styling the content area */
+md-card.inCart{
+    border: 5px solid tomato;
+    margin: 3px;
+}
+
+md-list-item.selected{
+    background: #E1BEE7;
+}
+
+/* Styling the footer */
+footer{
+    background: black;
+    color: white;
+}

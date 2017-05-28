@@ -1,86 +1,53 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  
-  
-  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+<?php
+session_start();
+if (!isset($_SESSION['userid'])) {
+	header("Location: login.php");
+}
+?>
+<!doctype html>
+<html lang="en">
+  <head>
 
-      <link rel="stylesheet" href="css/login.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <meta charset="utf-8">   
+     
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 
-  
-</head>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>    
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-<body>
-  <div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Register</label>
-		<div class="login-form">
-			<Form method="POST" action="server/login.php">
-				<div class="sign-in-htm">
-					<div class="group">
-						<label for="user" class="label">Email</label>
-						<input id="user" name="email" type="email" class="input">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input id="pass" name="password" type="password" class="input" data-type="password">
-					</div>
-					<!--<div class="group">
-						<input id="check" type="checkbox" class="check" checked>
-						<label for="check"><span class="icon"></span> Keep me Signed in</label>
-					</div>-->
-					<div class="group">
-						<input type="submit" name="login" class="button" value="Sign In">
-					</div>
-					<div class="hr"></div>
-					<div class="foot-lnk">
-						<?php
-							if(isset($_GET['loginerr'])){
-								echo "<span>User name and password do not match !!!</span>";
-							}else if(isset($_GET["errdatabase"])){
-								echo "<span>Database busy please try after sometime !!!</span>";
-							}else if($_GET["errpw"]){
-								echo "<span>Password do not match please try again !!!</span>";
-							}
-						?>
-					</div>
-				</div>
-			</Form>			
-			<Form method="POST" action="server/register.php">
-				<div class="sign-up-htm">
-					<div class="group">
-						<label for="user" class="label">Username</label>
-						<input id="user" name="username" type="text" class="input">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input id="pass" name="password" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Repeat Password</label>
-						<input id="pass" name="password2" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Email Address</label>
-						<input id="pass" name="email" type="email" class="input">
-					</div>
-					<div class="group">
-						<input type="submit" name="register" class="button" value="Register">
-					</div>
-					<div class="hr"></div>
-					<div class="foot-lnk">
-						<a href="tab-1"><label for="tab-1">Already Member?</label></a>
-					</div>
-				</div>
-			</Form>
-		
-		</div>
-	</div>
-</div>
-  
-  
-</body>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script src="js/app/blackGoose.module.js"></script>
+    <script src="js/app/blackGoose.config.js"></script>
+    <script src="js/app/product.service.js"></script>
+    <script src="js/app/cart.service.js"></script>
+    <script src="js/app/header.component.js"></script>
+    <script src="js/app/sidebar.component.js"></script>
+    <script src="js/app/product.component.js"></script>
+    <script src="js/app/foodList.component.js"></script>
+
+  </head>
+  <body ng-app="blackGoose" ng-cloak>
+    <div id="wrapper">
+      <header id="header"></header>
+      
+      <div id="content" layout="row" layout-margin layout-align="center">
+        <sidebar flex="nogrow" layout="column" layout-margin></sidebar>
+        <div ng-view flex="grow" layout="row"></div>
+      </div>  
+      <footer>
+        <span>&copy copyrights @ Black Goose Bistro</span>
+      </footer>
+    </div>      
+
+  </body>
 </html>

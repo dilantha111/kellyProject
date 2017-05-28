@@ -3,17 +3,31 @@ angular.module("blackGoose").
         templateUrl: "js/app/product.template.html",
         controller: [function productController() {
             var self = this;
+            var updateData = self.onUpdate({product:self.product});
+            self.count = updateData.count;
+            self.totalPrice = updateData.totalPrice;
+
             this.add = function () {
-                self.onAdd({product:self.product});
+                var product = self.onAdd({product:self.product});
+                self.count = product.count;
+                self.totalPrice = product.totalPrice;
             }
             this.remove = function(){
-                self.onRemove({product:self.product});
+                var product = self.onRemove({product:self.product});
+                if(product){
+                    self.count = product.count;
+                    self.totalPrice = product.totalPrice;
+                }else{
+                    self.count = 0;
+                    self.totalPrice = 0;
+                }                
             }
         }],
         bindings: {
             product: '<',
             onAdd: '&',
-            onRemove: '&'
+            onRemove: '&',
+            onUpdate: '&'
         }
     });
 

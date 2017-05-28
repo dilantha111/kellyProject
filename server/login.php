@@ -15,9 +15,9 @@ if (isset($_POST['login'])) {
     $_SESSION['userid'] = $result["userid"];
     $_SESSION['username'] = $result["username"];
     $_SESSION['email'] = $result["email"];
-    header("Location: ../home.php");
+    header("Location: ../index.php");
   } else {
-    header("Location: ../index.php?loginerr=1");
+    header("Location: ../login.php?loginerr=1");
   }
 
 }

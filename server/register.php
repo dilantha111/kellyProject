@@ -9,7 +9,7 @@ if(isset($_POST['register'])){
   $passwordcon = $_POST['password2'];
 
   if ($password != $passwordcon) {
-    header("Location: ../index.php?errpw=1");
+    header("Location: ../login.php?errpw=1");
   }else{
     $password = md5($password); // encrypting the password
     $database = new database();
@@ -21,7 +21,7 @@ if(isset($_POST['register'])){
       $_SESSION['email'] = $email;
       header("Location: ../home.php");
     }else{
-      header("Location: ../index.php?errdatabase=1");
+      header("Location: ../login.php?errdatabase=1");
     }
   }
 
