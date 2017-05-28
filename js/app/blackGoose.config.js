@@ -19,6 +19,9 @@ angular.
         when('/desert', {
           template: '<food-list cat="DESSERT SELECTION" flex layout="row" layout-margin layout-wrap></food-list>'
         }).
+        when('/cart', {
+          template: '<cart-page flex layout="column" layout-margin layout-wrap></cart-page>'
+        }).
         otherwise('/appetizer');
     }
   ]);

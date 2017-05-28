@@ -36,6 +36,10 @@ md-card.inCart{
     margin: 3px;
 }
 
+table{
+    width: 100%;
+}
+
 md-list-item.selected{
     background: #E1BEE7;
 }

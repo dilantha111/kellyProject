@@ -34,6 +34,7 @@ if (!isset($_SESSION['userid'])) {
     <script src="js/app/sidebar.component.js"></script>
     <script src="js/app/product.component.js"></script>
     <script src="js/app/foodList.component.js"></script>
+    <script src="js/app/cart.component.js"></script>
 
   </head>
   <body ng-app="blackGoose" ng-cloak>

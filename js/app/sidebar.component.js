@@ -4,6 +4,8 @@ component("sidebar",{
     controller: ['$location','products','cart',function sidebarController($location,products,cart){
         var self = this;
                 
+        self.cart = cart;
+        
         self.menus = [
             {
                 name: "APPETIZERS",
@@ -31,8 +33,19 @@ component("sidebar",{
             $location.replace();
             self.selectedItem = menu.name;
         }
-        self.selectedItem = "APPETIZERS";
 
-        self.cart = cart;        
+        var url = $location.$$absUrl;
+        url = url.slice(url.lastIndexOf('/'),url.length);
+        
+        if(url == '/cart'){
+            self.selectedItem = "cart";
+        }else{
+            self.menus.forEach(function(menu){
+                if(url == menu.url){
+                    self.selectedItem = menu.name;
+                }
+            });
+        }
+
     }]
 });

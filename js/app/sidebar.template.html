@@ -27,7 +27,9 @@
 
     <md-content>
         <md-list flex>
-            <md-list-item class="md-3-line" ng-click="null">
+            <md-list-item class="md-3-line" ng-click="$ctrl.goto({url:'/cart',name:'cart'})"
+            ng-class="'cart' == $ctrl.selectedItem ? 'selected':''"
+            >
                 <img ng-src="img/cart.svg" class="md-avatar" alt="{{item.who}}" />
                 <div class="md-list-item-text" layout="column">
                     <h3>See Cart</h3>

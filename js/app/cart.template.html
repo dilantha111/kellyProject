@@ -1,0 +1,30 @@
+<table flex="noshrink" ng-if="$ctrl.items.length > 0" ng-click="$ctrl.remove($event)">
+    <thead>
+        <tr>
+            <td>Item</td>
+            <td>Number of Items</td>
+            <td>Price per Item</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.items ">
+            <td>{{item.name}}</td>
+            <td>{{item.count}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.totalPrice}}</td>
+            <td item="{{item.name}}">Remove</td>
+        </tr>
+        <tr>
+            <td>Total Price : </td>
+            <td>{{$ctrl.cart.count}}</td>
+            <td></td>
+            <td>{{$ctrl.cart.totalPrice}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div ng-if="$ctrl.items.length <= 0">
+    <h1 style="text-align:center;">You don't have any item on the cart yet</h1>
+</div>

@@ -25,6 +25,7 @@ angular.module("blackGoose")
             }
 
             var object = {
+                ID: item.ID,
                 name: item.name,
                 price: item.price,
                 count: count,
@@ -55,6 +56,7 @@ angular.module("blackGoose")
                     var count = Number(oldItem.count) -1;
                     var totalPrice = Math.round(count * Number(item.price) * 100)/100;
                     var object = {
+                        ID: item.ID,
                         name: item.name,
                         price: item.price,
                         count: count,
@@ -64,6 +66,20 @@ angular.module("blackGoose")
                     return object;
                 }
             }
+        },
+
+        removeAll: function(item){
+            var key = item.ID;
+            var oldItem = null;
+
+            if(oldItem = localStorage.getItem(key)){
+                oldItem = JSON.parse(oldItem);
+                this.count = this.count - Number(oldItem.count);
+                this.totalPrice = this.totalPrice - Number(oldItem.totalPrice);
+                this.totalPrice = Math.round(this.totalPrice*100)/100;
+                localStorage.removeItem(key);
+            }
+
         },
 
         getAll: function(){
