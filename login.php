@@ -14,12 +14,17 @@
 
 <body>
   <div class="login-wrap">
+	  
 	<div class="login-html">
+		<div>
+			<h1>Black Goose Bistro </h1>
+		</div>
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Register</label>
 		<div class="login-form">
 			<Form method="POST" action="server/login.php">
 				<div class="sign-in-htm">
+					
 					<div class="group">
 						<label for="user" class="label">Email</label>
 						<input id="user" name="email" type="email" class="input">
@@ -42,7 +47,7 @@
 								echo "<span>User name and password do not match !!!</span>";
 							}else if(isset($_GET["errdatabase"])){
 								echo "<span>Database busy please try after sometime !!!</span>";
-							}else if($_GET["errpw"]){
+							}else if(isset($_GET["errpw"])){
 								echo "<span>Password do not match please try again !!!</span>";
 							}
 						?>

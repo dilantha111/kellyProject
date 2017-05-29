@@ -23,26 +23,13 @@ class database{
     }
   }
 
-  public function addorder($email,$card){
+  public function addOrder($email,$card,$totalPrice,$details){
     $conn = self::connect();
     if($conn->connect_error){
       return FALSE;
     }else{
-      $query = "insert into orders(email,card) values('$email','$card')";
-      if($conn->query($query)){
-        return $conn->insert_id;
-      }else{
-        return FALSE;
-      }
-    }
-  }
-
-  public function addorderbook($id,$name){
-    $conn = self::connect();
-    if($conn->connect_error){
-      return FALSE;
-    }else{
-      $query = "insert into orderbooks(orderid,bookname) values('$id','$name')";
+      $query = "insert into orders(email,card,totalPrice,details) values("
+        ."'$email','$card','$totalPrice','$details')";
       if($conn->query($query)){
         return $conn->insert_id;
       }else{

@@ -36,12 +36,49 @@ md-card.inCart{
     margin: 3px;
 }
 
-table{
-    width: 100%;
+table#cart{
+    width: 100%; 
+    background-color: #f1f1c1;
+}
+
+table#cart tr:nth-child(even) {
+    background-color: #eee;
+}
+table#cart tr:nth-child(odd) {
+    background-color: #fff;
+}
+table#cart tr:last-child{
+    background:tomato;
+}
+table#cart th {
+    color: white;
+    background-color: #8895da;
+    line-height: 5rem;
+}
+table#cart td{
+    line-height: 3rem;
+    padding-left: 1rem;
+}
+table#cart .remove:hover{
+    background: #c398ca;
+    cursor: pointer;
 }
 
 md-list-item.selected{
     background: #E1BEE7;
+}
+
+md-content.form{
+    background: #cab7b7;
+}
+
+md-content div.form-title{
+    background: #8c9eff;
+    padding: 3rem;
+}
+
+md-content .form-content{
+    padding: 3rem;
 }
 
 /* Styling the footer */

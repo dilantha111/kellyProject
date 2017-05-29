@@ -1,0 +1,48 @@
+<md-content  flex="nogrow" layout="column" class="form">
+    <div flex class="form-title">
+        <h1>coupon code </h1>
+        <p>If you have a coupon code please insert it below</p>
+    </div>
+
+    <div flex layout="row" class="form-content">
+        <md-input-container flex>
+            <label>Code</label>
+            <input ng-model="$ctrl.code" type="text">
+        </md-input-container>
+        <div flex layout="row" layout-align="center start">
+            <md-button class="md-raised md-primary" ng-click="$ctrl.checkCouponCode($ctrl.code)" style="line-height:2rem;">check out coupon code</md-button>
+        </div>
+    </div>
+</md-content>
+
+<md-content  flex="nogrow" layout="column" class="form">
+
+    <div flex class="form-content">
+        <p>Total Price : ${{$ctrl.totalPrice}}</p>
+        <p ng-if="$ctrl.couponCodeValid">Coupon Code appears to be valid. 10% of discount has been added</p>
+        <p ng-if="$ctrl.couponCodeValidFaild">Coupon Code is expired or not valid</p>
+    </div>
+</md-content>
+
+<md-content  flex="nogrow" layout="column" class="form">
+    <div flex class="form-title">
+        <h1>Payment </h1>
+        <p>Enter your credit card and password below</p>
+    </div>
+
+    <div flex layout="row" class="form-content">
+        <md-input-container flex>
+            <label>Credit Card No:</label>
+            <input ng-model="$ctrl.creditCardNo" type="text" ng-change="$ctrl.checkCreditCard($ctrl.creditCardNo)">
+            <p ng-if="$ctrl.cardValid">Card appears to be valid Type : {{$ctrl.cardType}}</p>
+            <p ng-if="$ctrl.cardValidFailed && $ctrl.creditCardNo.length > 0">Card is not valid</p>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Password</label>
+            <input ng-model="$ctrl.creditCardPassWord" type="text">            
+        </md-input-container>
+        <div flex layout="row" layout-align="center start">
+            <md-button class="md-raised md-primary" ng-click="$ctrl.gotoCheckOut()" style="line-height:4rem;">Place the order</md-button>
+        </div>
+    </div>
+</md-content>

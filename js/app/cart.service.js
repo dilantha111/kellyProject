@@ -11,6 +11,7 @@ angular.module("blackGoose")
     return {
         count: initialCount,
         totalPrice: Math.round(initialTotalCost*100)/100,
+        orderNumber: 0,
 
         add: function(item){
             var key = item.ID;
@@ -88,7 +89,15 @@ angular.module("blackGoose")
                 items.push(JSON.parse(localStorage.getItem(key)));
             });
             return items;
-        },        
+        },     
+
+        clearAll: function(){
+            Object.keys(localStorage).forEach(function(key){
+                localStorage.removeItem(key);
+            });
+            this.totalPrice = 0;
+            this.count = 0;
+        },   
 
         getCount: function(item){
             var key = item.ID;

@@ -26,6 +26,7 @@ if (!isset($_SESSION['userid'])) {
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
+    <script src="js/angular-credit-cards.js"></script>
     <script src="js/app/blackGoose.module.js"></script>
     <script src="js/app/blackGoose.config.js"></script>
     <script src="js/app/product.service.js"></script>
@@ -35,6 +36,8 @@ if (!isset($_SESSION['userid'])) {
     <script src="js/app/product.component.js"></script>
     <script src="js/app/foodList.component.js"></script>
     <script src="js/app/cart.component.js"></script>
+    <script src="js/app/validate.component.js"></script>
+    <script src="js/app/orderSuccess.component.js"></script>
 
   </head>
   <body ng-app="blackGoose" ng-cloak>
@@ -50,5 +53,6 @@ if (!isset($_SESSION['userid'])) {
       </footer>
     </div>      
 
+    </script>
   </body>
 </html>

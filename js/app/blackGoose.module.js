@@ -1,1 +1,1 @@
-angular.module("blackGoose",["ngMaterial","ngRoute"]);
+angular.module("blackGoose",["ngMaterial","ngRoute","credit-cards"]);

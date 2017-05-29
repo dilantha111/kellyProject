@@ -1,7 +1,7 @@
 angular.module("blackGoose")
 .component("cartPage",{
     templateUrl: "js/app/cart.template.html",
-    controller: ['cart',function cartPageController(cart){
+    controller: ['cart','$location',function cartPageController(cart,$location){
         var self = this;
         self.items = cart.getAll();
         self.cart = cart;
@@ -18,8 +18,12 @@ angular.module("blackGoose")
                 });
                 self.items.splice(self.items.indexOf(toBeRemoved),1);
                 self.cart.removeAll(toBeRemoved);
-            }            
+            }           
+        }
 
+        self.gotoCheckOut = function(){
+            $location.path("/checkout");
+            $location.replace();
         }
     }]
 });

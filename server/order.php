@@ -2,20 +2,14 @@
 require 'database.php';
 session_start();
 
-if(isset($_GET['card'])){
-    $card = $_GET['card'];
-    $email = $_SESSION['email'];
+$data = $_GET["data"];
+$data = json_decode($data);
 
-    $database = new database();
-    $id = $database->addorder($email,$card);
+$email = $_SESSION['email'];
+$card = $data->cardNo;
+$totalPrice = $data->totalPrice;
+$details = json_encode($data->details); 
 
-    foreach($_COOKIE as $key => $value){
-      if(strpos($key,'%') !== false){
-        $temp = $database->addorderbook($id,$key);
-      }
-    }
+$database = new database();
 
-    if($id){
-      echo $id;
-    }
-}
+echo $database->addOrder($email,$card,$totalPrice,$details);

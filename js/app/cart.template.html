@@ -1,29 +1,32 @@
-<table flex="noshrink" ng-if="$ctrl.items.length > 0" ng-click="$ctrl.remove($event)">
+<table id="cart" flex="noshrink" ng-if="$ctrl.items.length > 0" ng-click="$ctrl.remove($event)">
     <thead>
         <tr>
-            <td>Item</td>
-            <td>Number of Items</td>
-            <td>Price per Item</td>
-            <td>Price</td>
-            <td></td>
+            <th>Item</th>
+            <th>Number of Items</th>
+            <th>Price per Item</th>
+            <th>Price</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="item in $ctrl.items ">
             <td>{{item.name}}</td>
             <td>{{item.count}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.totalPrice}}</td>
-            <td item="{{item.name}}">Remove</td>
+            <td>${{item.price}}</td>
+            <td>${{item.totalPrice}}</td>
+            <td item="{{item.name}}" class="remove">Remove</td>
         </tr>
         <tr>
             <td>Total Price : </td>
             <td>{{$ctrl.cart.count}}</td>
             <td></td>
-            <td>{{$ctrl.cart.totalPrice}}</td>
+            <td>${{$ctrl.cart.totalPrice}}</td>
         </tr>
     </tbody>
 </table>
+
+<md-button ng-if="$ctrl.items.length > 0" class="md-raised md-primary" ng-click="$ctrl.gotoCheckOut()"
+    style="line-height:5rem;">Proceed to Checkout !!!!</md-button>
 
 <div ng-if="$ctrl.items.length <= 0">
     <h1 style="text-align:center;">You don't have any item on the cart yet</h1>

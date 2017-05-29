@@ -22,6 +22,12 @@ angular.
         when('/cart', {
           template: '<cart-page flex layout="column" layout-margin layout-wrap></cart-page>'
         }).
+        when('/checkout', {
+          template: '<check-out flex layout="column" layout-margin layout-wrap></check-out>'
+        }).
+        when('/orderSuccess', {
+          template: '<order-success flex layout="column" layout-margin layout-wrap></order-success>'
+        }).
         otherwise('/appetizer');
     }
   ]);
