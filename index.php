@@ -52,7 +52,8 @@ if (!isset($_SESSION['userid'])) {
         <span>&copy copyrights @ Black Goose Bistro</span>
       </footer>
     </div>      
-
+    <script>
+      localStorage.clear()
     </script>
   </body>
 </html>

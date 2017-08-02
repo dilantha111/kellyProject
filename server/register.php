@@ -19,7 +19,7 @@ if(isset($_POST['register'])){
       $_SESSION['userid'] = $userid;
       $_SESSION['username'] = $username;
       $_SESSION['email'] = $email;
-      header("Location: ../home.php");
+      header("Location: ../index.php");
     }else{
       header("Location: ../login.php?errdatabase=1");
     }
